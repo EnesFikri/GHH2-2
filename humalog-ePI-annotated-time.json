@@ -1,0 +1,64 @@
+{
+  "resourceType": "Library",
+  "id": "humalog-timeeffect-lens",
+  "meta": {
+    "profile": [
+      "http://hl7.eu/fhir/ig/gravitate-health/StructureDefinition/lens"
+    ]
+  },
+  "type": {
+    "coding": [
+      {
+        "code": "logical-library"
+      }
+    ]
+  },
+  "extension": [
+    {
+      "url": "http://hl7.eu/fhir/ig/gravitate-health/StructureDefinition/lee-version",
+      "valueString": "dev"
+    }
+  ],
+  "url": "http://hl7.eu/fhir/ig/gravitate-health/Library/humalog-timeeffect-lens",
+  "identifier": [
+    {
+      "system": "http://gravitate-health.lst.tfo.upm.es",
+      "value": "humalog-timeeffect-lens"
+    }
+  ],
+  "version": "0.0.1",
+  "name": "HumalogTimeEffectLens",
+  "title": "Humalog time-effect lens",
+  "status": "draft",
+  "experimental": true,
+  "date": "2024-12-11T00:00:00Z",
+  "publisher": "Gravitate Health Project - Assistant generated",
+  "description": "Lens that highlights Humalog (insulin lispro) time-effect information (onset, peak, duration) and factors requiring dose adjustment.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "code": "EU",
+          "system": "urn:iso:std:iso:3166"
+        }
+      ]
+    }
+  ],
+  "purpose": "Highlight Humalog (insulin lispro) onset, peak, duration and clinical situations that require increasing or reducing dose in a preprocessed ePI.",
+  "usage": "You can import this lens directly to your FHIR Server which supports the Library resource type.",
+  "copyright": "\u00a9 2024 Gravitate Health",
+  "parameter": [
+    {
+      "use": "in",
+      "documentation": "Parameter if it exists",
+      "type": "CodeableConcept"
+    }
+  ],
+  "content": [
+    {
+      "contentType": "application/javascript",
+      "title": "Lens for Humalog time-effect and dose adjustment",
+      "data": "CmxldCBwdkRhdGEgPSBwdjsKbGV0IGh0bWxEYXRhID0gaHRtbDsKCmxldCBlcGlEYXRhID0gZXBpOwpsZXQgaXBzRGF0YSA9IGlwczsKCmxldCBnZXRTcGVjaWZpY2F0aW9uID0gKCkgPT4gewogIHJldHVybiAiMS4wLjAiOwp9OwoKLyoqCiAqIENvcmUgaGVscGVyOiBhZGQgaGlnaGxpZ2h0IGFuZCBhbm5vdGF0aW9uIGNsYXNzZXMgdG8gYWxsIGVsZW1lbnRzIGZvciB0aGUKICogbWF0Y2hpbmcgQ1NTIHNlbGVjdG9ycyAoY2F0ZWdvcmllcykgdGhhdCB3ZXJlIGRldGVjdGVkIGluIHRoZSBlUEkuCiAqLwpsZXQgYW5ub3RhdGlvblByb2Nlc3MgPSAobGlzdE9mQ2F0ZWdvcmllcywgZW5oYW5jZVRhZywgZG9jdW1lbnQsIHJlc3BvbnNlKSA9PiB7CiAgbGlzdE9mQ2F0ZWdvcmllcy5mb3JFYWNoKChjaGVjaykgPT4gewogICAgaWYgKHJlc3BvbnNlLmluY2x1ZGVzKGNoZWNrKSkgewogICAgICBsZXQgZWxlbWVudHMgPSBkb2N1bWVudC5nZXRFbGVtZW50c0J5Q2xhc3NOYW1lKGNoZWNrKTsKICAgICAgZm9yIChsZXQgaSA9IDA7IGkgPCBlbGVtZW50cy5sZW5ndGg7IGkrKykgewogICAgICAgIGVsZW1lbnRzW2ldLmNsYXNzTGlzdC5hZGQoZW5oYW5jZVRhZyk7CiAgICAgICAgZWxlbWVudHNbaV0uY2xhc3NMaXN0LmFkZCgiaHVtYWxvZy10aW1lZWZmZWN0LWxlbnMiKTsKICAgICAgfQogICAgfQogIH0pOwoKICBpZiAocmVzcG9uc2UgPT0gbnVsbCB8fCByZXNwb25zZSA9PT0gIiIpIHsKICAgIHRocm93IG5ldyBFcnJvcigKICAgICAgIkFubm90YXRpb24gcHJvY2VzcyBmYWlsZWQ6IFJldHVybmVkIGVtcHR5IG9yIG51bGwgcmVzcG9uc2UiCiAgICApOwogIH0gZWxzZSB7CiAgICByZXR1cm4gcmVzcG9uc2U7CiAgfQp9OwoKLyoqCiAqIFJ1biBhbm5vdGF0aW9uIGxvZ2ljIGZvciBhIGdpdmVuIHNldCBvZiBjYXRlZ29yaWVzIGluIHRoZSBjdXJyZW50IEhUTUwuCiAqIFdvcmtzIGJvdGggaW4gYnJvd3NlciBhbmQgaW4gSlMgRE9NIChzZXJ2ZXItc2lkZSkuCiAqLwpsZXQgYW5ub3RhdGVIVE1Mc2VjdGlvbiA9IGFzeW5jIChsaXN0T2ZDYXRlZ29yaWVzLCBlbmhhbmNlVGFnKSA9PiB7CiAgbGV0IHJlc3BvbnNlID0gaHRtbERhdGE7CiAgbGV0IGRvY3VtZW50OwoKICBpZiAodHlwZW9mIHdpbmRvdyA9PT0gInVuZGVmaW5lZCIpIHsKICAgIGxldCBqc2RvbSA9IGF3YWl0IGltcG9ydCgianNkb20iKTsKICAgIGxldCB7IEpTRE9NIH0gPSBqc2RvbTsKICAgIGxldCBkb20gPSBuZXcgSlNET00oaHRtbERhdGEpOwogICAgZG9jdW1lbnQgPSBkb20ud2luZG93LmRvY3VtZW50OwogICAgcmV0dXJuIGFubm90YXRpb25Qcm9jZXNzKGxpc3RPZkNhdGVnb3JpZXMsIGVuaGFuY2VUYWcsIGRvY3VtZW50LCByZXNwb25zZSk7CiAgfSBlbHNlIHsKICAgIGRvY3VtZW50ID0gd2luZG93LmRvY3VtZW50OwogICAgcmV0dXJuIGFubm90YXRpb25Qcm9jZXNzKGxpc3RPZkNhdGVnb3JpZXMsIGVuaGFuY2VUYWcsIGRvY3VtZW50LCByZXNwb25zZSk7CiAgfQp9OwoKLyoqCiAqIE1haW4gZW5oYW5jZSBmdW5jdGlvbgogKiAtIEZpcnN0LCBmaW5kIHRpbWUtZWZmZWN0IHJlbGF0ZWQgY2F0ZWdvcmllcyAob25zZXQsIHBlYWssIGR1cmF0aW9uKS4KICogLSBTZWNvbmQsIGZpbmQgZG9zZS1hZGp1c3RtZW50IHJlbGF0ZWQgY2F0ZWdvcmllcyAoaW5jcmVhc2UgLyByZWR1Y2UpLgogKiBCb3RoIGFyZSBhcHBsaWVkIGFzIENTUyBjbGFzc2VzIHRvIHRoZSBtYXRjaGluZyBzZWN0aW9ucy4KICovCmxldCBlbmhhbmNlID0gYXN5bmMgKCkgPT4gewogIC8vIFRoZXNlIGNsYXNzIG5hbWVzIG11c3QgbWF0Y2ggdGhlIGVQSSBIVE1MIGNsYXNzaWZpY2F0aW9uIGZvciBIdW1hbG9nCiAgLy8gKG9yIGJlIG1hcHBlZCBpbiB0aGUgcHJlLXByb2Nlc3Npbmcgc3RlcCkuCiAgbGV0IHRpbWVFZmZlY3RDYXRlZ29yaWVzVG9TZWFyY2ggPSBbCiAgICAiY29udHJhLXRpbWVlZmZlY3Qtb25zZXQiLAogICAgImNvbnRyYS10aW1lZWZmZWN0LXBlYWsiLAogICAgImNvbnRyYS10aW1lZWZmZWN0LWR1cmF0aW9uIgogIF07CgogIGxldCBkb3NlQWRqdXN0bWVudENhdGVnb3JpZXNUb1NlYXJjaCA9IFsKICAgIC8vIEZhY3RvcnMgdGhhdCBtYXkgcmVxdWlyZSBpbmNyZWFzaW5nIEh1bWFsb2cgZG9zZQogICAgImNvbnRyYS1kb3NlLWluY3JlYXNlLWhpZ2hlci1yZXF1aXJlbWVudCIsCiAgICAiY29udHJhLWRvc2UtaW5jcmVhc2UtaWxsbmVzcyIsCiAgICAiY29udHJhLWRvc2UtaW5jcmVhc2Utc3RyZXNzIiwKICAgICJjb250cmEtZG9zZS1pbmNyZWFzZS1wdWJlcnR5IiwKICAgICJjb250cmEtZG9zZS1pbmNyZWFzZS1zbW9raW5nLXJlc3VtcHRpb24iLAogICAgImNvbnRyYS1kb3NlLWluY3JlYXNlLW90aGVyIiwKICAgIC8vIEZhY3RvcnMgdGhhdCBtYXkgcmVxdWlyZSByZWR1Y2luZyBIdW1hbG9nIGRvc2UKICAgICJjb250cmEtZG9zZS1yZWR1Y2UtcmVuYWwtaW1wYWlybWVudCIsCiAgICAiY29udHJhLWRvc2UtcmVkdWNlLWhlcGF0aWMtaW1wYWlybWVudCIsCiAgICAiY29udHJhLWRvc2UtcmVkdWNlLWlsbG5lc3MtbG93ZXItcmVxdWlyZW1lbnQiLAogICAgImNvbnRyYS1kb3NlLXJlZHVjZS1waHlzaWNhbC1hY3Rpdml0eSIsCiAgICAiY29udHJhLWRvc2UtcmVkdWNlLWFsY29ob2wiLAogICAgImNvbnRyYS1kb3NlLXJlZHVjZS1zbW9raW5nLWNlc3NhdGlvbiIsCiAgICAiY29udHJhLWRvc2UtcmVkdWNlLW90aGVyIgogIF07CgogIC8vIDEpIEhpZ2hsaWdodCBvbnNldCwgcGVhaywgZHVyYXRpb24gKHRpbWUtZWZmZWN0KQogIGF3YWl0IGFubm90YXRlSFRNTHNlY3Rpb24odGltZUVmZmVjdENhdGVnb3JpZXNUb1NlYXJjaCwgImhpZ2hsaWdodC10aW1lZWZmZWN0Iik7CgogIC8vIDIpIEhpZ2hsaWdodCBkb3NlIGFkanVzdG1lbnQgZmFjdG9ycwogIGF3YWl0IGFubm90YXRlSFRNTHNlY3Rpb24oZG9zZUFkanVzdG1lbnRDYXRlZ29yaWVzVG9TZWFyY2gsICJoaWdobGlnaHQtZG9zZS1hZGp1c3RtZW50Iik7CgogIHJldHVybiB7CiAgICBlbmhhbmNlLAogICAgZ2V0U3BlY2lmaWNhdGlvbiwKICB9Owp9OwoKcmV0dXJuIHsKICBlbmhhbmNlLAogIGdldFNwZWNpZmljYXRpb24sCn07Cg=="
+    }
+  ]
+}
