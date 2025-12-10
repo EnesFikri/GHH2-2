@@ -1,0 +1,64 @@
+{
+  "resourceType": "Library",
+  "id": "dia-lens-hypoglycaemia",
+  "meta": {
+    "profile": [
+      "http://hl7.eu/fhir/ig/gravitate-health/StructureDefinition/lens"
+    ]
+  },
+  "type": {
+    "coding": [
+      {
+        "code": "logical-library"
+      }
+    ]
+  },
+  "extension": [
+    {
+      "url": "http://hl7.eu/fhir/ig/gravitate-health/StructureDefinition/lee-version",
+      "valueString": "dev"
+    }
+  ],
+  "url": "http://hl7.org/fhir/gravitate-health/Library/dia-lens-hypoglycaemia",
+  "identifier": [
+    {
+      "system": "http://gravitate-health.lst.tfo.upm.es",
+      "value": "dia-lens-hypoglycaemia"
+    }
+  ],
+  "version": "0.1.0",
+  "name": "DiaLensHypoglycaemia",
+  "title": "DiaLens \u2013 Hypoglycaemia Risk Lens",
+  "status": "draft",
+  "experimental": true,
+  "date": "2025-12-11T00:00:00Z",
+  "publisher": "Gravitate Health Project - DiaLens Prototype",
+  "description": "Lens that highlights sections of insulin ePIs related to hypoglycaemia risk, including onset, duration and peak of action and factors that increase or reduce insulin effect.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "code": "EU",
+          "system": "urn:iso:std:iso:3166"
+        }
+      ]
+    }
+  ],
+  "purpose": "To help people using insulin quickly see their hypoglycaemia risk profile, typical symptom timing and emergency instructions in an ePI.",
+  "usage": "Import this lens into a FHIR server that supports the Library resource. It is intended to be used together with time\u2011annotated insulin ePIs (onset, peak and duration coded as categories in the HTML).",
+  "copyright": "\u00a9 2025 Gravitate Health / DiaLens concept",
+  "parameter": [
+    {
+      "use": "in",
+      "documentation": "List of HTML category classes that correspond to time\u2011annotated insulin information (e.g. insulin\u2011onset\u20110h\u20111h, insulin\u2011peak\u20111h\u20113h, insulin\u2011duration\u2011up\u2011to\u201124h, insulin\u2011effect\u2011enhancer, insulin\u2011effect\u2011reducer).",
+      "type": "CodeableConcept"
+    }
+  ],
+  "content": [
+    {
+      "contentType": "application/javascript",
+      "title": "DiaLens hypoglycaemia script",
+      "data": null
+    }
+  ]
+}
