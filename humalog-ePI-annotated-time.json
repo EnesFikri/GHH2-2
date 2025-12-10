@@ -1,64 +1,113 @@
 {
-  "resourceType": "Library",
-  "id": "humalog-timeeffect-lens",
-  "meta": {
-    "profile": [
-      "http://hl7.eu/fhir/ig/gravitate-health/StructureDefinition/lens"
+  "medicinalProduct": {
+    "name": "Humalog",
+    "activeSubstance": "insulin lispro",
+    "sourceDocument": "humalog-epar-product-information_en.pdf",
+    "sourceSections": [
+      "SmPC 4.2 Posology and method of administration",
+      "SmPC 4.4 Special warnings and precautions for use",
+      "SmPC 5.1 Pharmacodynamic properties",
+      "SmPC 5.2 Pharmacokinetic properties"
     ]
   },
-  "type": {
-    "coding": [
+  "timeEffectProfile": {
+    "route": "subcutaneous",
+    "onset": {
+      "description": "Humalog takes effect rapidly and is intended to be injected very close to mealtime.",
+      "approximateRangeMinutes": {
+        "min": 0,
+        "max": 15
+      },
+      "leafletTextSnippets": [
+        "Humalog works very quickly and lasts a shorter time than soluble insulin (2 to 5 hours). You should normally use Humalog within 15 minutes of a meal."
+      ]
+    },
+    "peak": {
+      "description": "Rapid rise in serum insulin with peak levels reached around 30–70 minutes after injection.",
+      "approximateRangeMinutes": {
+        "min": 30,
+        "max": 70
+      },
+      "leafletTextSnippets": [
+        "Peak blood levels of insulin lispro are reached 30 to 70 minutes after subcutaneous injection."
+      ]
+    },
+    "duration": {
+      "description": "Short duration of action compared with soluble human insulin.",
+      "approximateRangeHours": {
+        "min": 2,
+        "max": 5
+      },
+      "leafletTextSnippets": [
+        "Humalog works very quickly and lasts a shorter time than soluble insulin (2 to 5 hours)."
+      ]
+    },
+    "timeEffectNotes": [
       {
-        "code": "logical-library"
+        "note": "Because it is rapid-acting, hypoglycaemia – if it occurs – may appear earlier after injection compared with soluble human insulin.",
+        "leafletTextSnippet": "A consequence of the pharmacodynamics of rapid-acting insulin analogues is that if hypoglycaemia occurs, it may occur earlier after an injection when compared with soluble human insulin."
       }
     ]
   },
-  "extension": [
-    {
-      "url": "http://hl7.eu/fhir/ig/gravitate-health/StructureDefinition/lee-version",
-      "valueString": "dev"
+  "doseAdjustmentFactors": {
+    "increaseDoseFactors": [
+      {
+        "factor": "Acute illness or infection",
+        "reason": "Stress hormones during illness or infection tend to increase blood glucose levels and insulin requirements.",
+        "timeEffectAnnotation": "↑ overall insulin need throughout the day; may require higher pre-meal Humalog doses to keep glucose in range."
+      },
+      {
+        "factor": "Emotional stress / emotional disturbances",
+        "reason": "Stress can increase counter-regulatory hormones, raising blood glucose.",
+        "timeEffectAnnotation": "↑ insulin demand; same time–action curve but more units are needed at meals and possibly correction doses.",
+        "leafletTextSnippet": "Insulin requirements may be increased during illness or emotional disturbances."
+      },
+      {
+        "factor": "Chronic hepatic impairment leading to insulin resistance",
+        "reason": "In chronic liver disease, insulin resistance can develop and increase insulin requirements.",
+        "timeEffectAnnotation": "May blunt expected glucose fall after Humalog; peak effect may appear ‘smaller’ rather than later.",
+        "leafletTextSnippet": "In chronic hepatic impairment, an increase in insulin resistance may lead to increased insulin requirements."
+      }
+    ],
+    "decreaseDoseFactors": [
+      {
+        "factor": "Renal impairment",
+        "reason": "Reduced renal function can decrease insulin clearance, lowering insulin requirements.",
+        "timeEffectAnnotation": "Humalog action may be more pronounced and prolonged; risk of earlier and prolonged hypoglycaemia.",
+        "leafletTextSnippet": "Insulin requirements may be reduced in patients with renal impairment."
+      },
+      {
+        "factor": "Hepatic impairment (acute or decompensated)",
+        "reason": "Reduced hepatic gluconeogenesis lowers glucose output; insulin requirements can fall.",
+        "timeEffectAnnotation": "Greater glucose-lowering effect for the same dose; higher risk of hypoglycaemia especially around the expected peak.",
+        "leafletTextSnippet": "Insulin requirements may be reduced in patients with hepatic impairment due to reduced capacity for gluconeogenesis and reduced insulin metabolism."
+      },
+      {
+        "factor": "Increased physical activity",
+        "reason": "Exercise increases insulin sensitivity and glucose uptake in muscles.",
+        "timeEffectAnnotation": "Can effectively ‘amplify’ and slightly prolong Humalog’s effect after the injection; hypoglycaemia may appear earlier and/or be more pronounced.",
+        "leafletTextSnippet": "Exercise taken immediately after a meal may increase the risk of hypoglycaemia."
+      },
+      {
+        "factor": "Reduced food intake / delayed or missed meal",
+        "reason": "Less carbohydrate available while a rapid-acting insulin is active increases risk of low blood glucose.",
+        "timeEffectAnnotation": "No change in time to peak, but the same Humalog dose acts on less glucose → earlier and deeper hypoglycaemia risk.",
+        "leafletTextSnippet": "Inadequate dosing or discontinuation, especially in insulin-requiring diabetes, may lead to hyperglycaemia… Conversely, too high a dose, missed meals, or increased activity can lead to hypoglycaemia."
+      }
+    ],
+    "otherRelevantFactors": [
+      {
+        "factor": "Change in injection site (especially from lipohypertrophy / cutaneous amyloidosis to a healthy site)",
+        "reason": "Switching away from sites with lipodystrophy/amyloidosis can suddenly increase insulin absorption.",
+        "timeEffectAnnotation": "Faster and stronger fall in glucose than expected at the same time points → earlier hypoglycaemia after injection.",
+        "leafletTextSnippet": "There is a potential risk of delayed insulin absorption and worsened glycaemic control following insulin injections at sites with these reactions… A sudden change in the injection site to an unaffected area has been reported to result in hypoglycaemia."
+      }
+    ]
+  },
+  "administrationGuidance": {
+    "mealTiming": {
+      "recommendedWindow": "within 15 minutes before the meal; if necessary, shortly after starting the meal",
+      "timeEffectAnnotation": "Humalog is designed to match the post-meal glucose rise; injecting significantly earlier or without eating shifts the time–action curve away from the glucose curve, increasing hypoglycaemia risk."
     }
-  ],
-  "url": "http://hl7.eu/fhir/ig/gravitate-health/Library/humalog-timeeffect-lens",
-  "identifier": [
-    {
-      "system": "http://gravitate-health.lst.tfo.upm.es",
-      "value": "humalog-timeeffect-lens"
-    }
-  ],
-  "version": "0.0.1",
-  "name": "HumalogTimeEffectLens",
-  "title": "Humalog time-effect lens",
-  "status": "draft",
-  "experimental": true,
-  "date": "2024-12-11T00:00:00Z",
-  "publisher": "Gravitate Health Project - Assistant generated",
-  "description": "Lens that highlights Humalog (insulin lispro) time-effect information (onset, peak, duration) and factors requiring dose adjustment.",
-  "jurisdiction": [
-    {
-      "coding": [
-        {
-          "code": "EU",
-          "system": "urn:iso:std:iso:3166"
-        }
-      ]
-    }
-  ],
-  "purpose": "Highlight Humalog (insulin lispro) onset, peak, duration and clinical situations that require increasing or reducing dose in a preprocessed ePI.",
-  "usage": "You can import this lens directly to your FHIR Server which supports the Library resource type.",
-  "copyright": "\u00a9 2024 Gravitate Health",
-  "parameter": [
-    {
-      "use": "in",
-      "documentation": "Parameter if it exists",
-      "type": "CodeableConcept"
-    }
-  ],
-  "content": [
-    {
-      "contentType": "application/javascript",
-      "title": "Lens for Humalog time-effect and dose adjustment",
-      "data": "CmxldCBwdkRhdGEgPSBwdjsKbGV0IGh0bWxEYXRhID0gaHRtbDsKCmxldCBlcGlEYXRhID0gZXBpOwpsZXQgaXBzRGF0YSA9IGlwczsKCmxldCBnZXRTcGVjaWZpY2F0aW9uID0gKCkgPT4gewogIHJldHVybiAiMS4wLjAiOwp9OwoKLyoqCiAqIENvcmUgaGVscGVyOiBhZGQgaGlnaGxpZ2h0IGFuZCBhbm5vdGF0aW9uIGNsYXNzZXMgdG8gYWxsIGVsZW1lbnRzIGZvciB0aGUKICogbWF0Y2hpbmcgQ1NTIHNlbGVjdG9ycyAoY2F0ZWdvcmllcykgdGhhdCB3ZXJlIGRldGVjdGVkIGluIHRoZSBlUEkuCiAqLwpsZXQgYW5ub3RhdGlvblByb2Nlc3MgPSAobGlzdE9mQ2F0ZWdvcmllcywgZW5oYW5jZVRhZywgZG9jdW1lbnQsIHJlc3BvbnNlKSA9PiB7CiAgbGlzdE9mQ2F0ZWdvcmllcy5mb3JFYWNoKChjaGVjaykgPT4gewogICAgaWYgKHJlc3BvbnNlLmluY2x1ZGVzKGNoZWNrKSkgewogICAgICBsZXQgZWxlbWVudHMgPSBkb2N1bWVudC5nZXRFbGVtZW50c0J5Q2xhc3NOYW1lKGNoZWNrKTsKICAgICAgZm9yIChsZXQgaSA9IDA7IGkgPCBlbGVtZW50cy5sZW5ndGg7IGkrKykgewogICAgICAgIGVsZW1lbnRzW2ldLmNsYXNzTGlzdC5hZGQoZW5oYW5jZVRhZyk7CiAgICAgICAgZWxlbWVudHNbaV0uY2xhc3NMaXN0LmFkZCgiaHVtYWxvZy10aW1lZWZmZWN0LWxlbnMiKTsKICAgICAgfQogICAgfQogIH0pOwoKICBpZiAocmVzcG9uc2UgPT0gbnVsbCB8fCByZXNwb25zZSA9PT0gIiIpIHsKICAgIHRocm93IG5ldyBFcnJvcigKICAgICAgIkFubm90YXRpb24gcHJvY2VzcyBmYWlsZWQ6IFJldHVybmVkIGVtcHR5IG9yIG51bGwgcmVzcG9uc2UiCiAgICApOwogIH0gZWxzZSB7CiAgICByZXR1cm4gcmVzcG9uc2U7CiAgfQp9OwoKLyoqCiAqIFJ1biBhbm5vdGF0aW9uIGxvZ2ljIGZvciBhIGdpdmVuIHNldCBvZiBjYXRlZ29yaWVzIGluIHRoZSBjdXJyZW50IEhUTUwuCiAqIFdvcmtzIGJvdGggaW4gYnJvd3NlciBhbmQgaW4gSlMgRE9NIChzZXJ2ZXItc2lkZSkuCiAqLwpsZXQgYW5ub3RhdGVIVE1Mc2VjdGlvbiA9IGFzeW5jIChsaXN0T2ZDYXRlZ29yaWVzLCBlbmhhbmNlVGFnKSA9PiB7CiAgbGV0IHJlc3BvbnNlID0gaHRtbERhdGE7CiAgbGV0IGRvY3VtZW50OwoKICBpZiAodHlwZW9mIHdpbmRvdyA9PT0gInVuZGVmaW5lZCIpIHsKICAgIGxldCBqc2RvbSA9IGF3YWl0IGltcG9ydCgianNkb20iKTsKICAgIGxldCB7IEpTRE9NIH0gPSBqc2RvbTsKICAgIGxldCBkb20gPSBuZXcgSlNET00oaHRtbERhdGEpOwogICAgZG9jdW1lbnQgPSBkb20ud2luZG93LmRvY3VtZW50OwogICAgcmV0dXJuIGFubm90YXRpb25Qcm9jZXNzKGxpc3RPZkNhdGVnb3JpZXMsIGVuaGFuY2VUYWcsIGRvY3VtZW50LCByZXNwb25zZSk7CiAgfSBlbHNlIHsKICAgIGRvY3VtZW50ID0gd2luZG93LmRvY3VtZW50OwogICAgcmV0dXJuIGFubm90YXRpb25Qcm9jZXNzKGxpc3RPZkNhdGVnb3JpZXMsIGVuaGFuY2VUYWcsIGRvY3VtZW50LCByZXNwb25zZSk7CiAgfQp9OwoKLyoqCiAqIE1haW4gZW5oYW5jZSBmdW5jdGlvbgogKiAtIEZpcnN0LCBmaW5kIHRpbWUtZWZmZWN0IHJlbGF0ZWQgY2F0ZWdvcmllcyAob25zZXQsIHBlYWssIGR1cmF0aW9uKS4KICogLSBTZWNvbmQsIGZpbmQgZG9zZS1hZGp1c3RtZW50IHJlbGF0ZWQgY2F0ZWdvcmllcyAoaW5jcmVhc2UgLyByZWR1Y2UpLgogKiBCb3RoIGFyZSBhcHBsaWVkIGFzIENTUyBjbGFzc2VzIHRvIHRoZSBtYXRjaGluZyBzZWN0aW9ucy4KICovCmxldCBlbmhhbmNlID0gYXN5bmMgKCkgPT4gewogIC8vIFRoZXNlIGNsYXNzIG5hbWVzIG11c3QgbWF0Y2ggdGhlIGVQSSBIVE1MIGNsYXNzaWZpY2F0aW9uIGZvciBIdW1hbG9nCiAgLy8gKG9yIGJlIG1hcHBlZCBpbiB0aGUgcHJlLXByb2Nlc3Npbmcgc3RlcCkuCiAgbGV0IHRpbWVFZmZlY3RDYXRlZ29yaWVzVG9TZWFyY2ggPSBbCiAgICAiY29udHJhLXRpbWVlZmZlY3Qtb25zZXQiLAogICAgImNvbnRyYS10aW1lZWZmZWN0LXBlYWsiLAogICAgImNvbnRyYS10aW1lZWZmZWN0LWR1cmF0aW9uIgogIF07CgogIGxldCBkb3NlQWRqdXN0bWVudENhdGVnb3JpZXNUb1NlYXJjaCA9IFsKICAgIC8vIEZhY3RvcnMgdGhhdCBtYXkgcmVxdWlyZSBpbmNyZWFzaW5nIEh1bWFsb2cgZG9zZQogICAgImNvbnRyYS1kb3NlLWluY3JlYXNlLWhpZ2hlci1yZXF1aXJlbWVudCIsCiAgICAiY29udHJhLWRvc2UtaW5jcmVhc2UtaWxsbmVzcyIsCiAgICAiY29udHJhLWRvc2UtaW5jcmVhc2Utc3RyZXNzIiwKICAgICJjb250cmEtZG9zZS1pbmNyZWFzZS1wdWJlcnR5IiwKICAgICJjb250cmEtZG9zZS1pbmNyZWFzZS1zbW9raW5nLXJlc3VtcHRpb24iLAogICAgImNvbnRyYS1kb3NlLWluY3JlYXNlLW90aGVyIiwKICAgIC8vIEZhY3RvcnMgdGhhdCBtYXkgcmVxdWlyZSByZWR1Y2luZyBIdW1hbG9nIGRvc2UKICAgICJjb250cmEtZG9zZS1yZWR1Y2UtcmVuYWwtaW1wYWlybWVudCIsCiAgICAiY29udHJhLWRvc2UtcmVkdWNlLWhlcGF0aWMtaW1wYWlybWVudCIsCiAgICAiY29udHJhLWRvc2UtcmVkdWNlLWlsbG5lc3MtbG93ZXItcmVxdWlyZW1lbnQiLAogICAgImNvbnRyYS1kb3NlLXJlZHVjZS1waHlzaWNhbC1hY3Rpdml0eSIsCiAgICAiY29udHJhLWRvc2UtcmVkdWNlLWFsY29ob2wiLAogICAgImNvbnRyYS1kb3NlLXJlZHVjZS1zbW9raW5nLWNlc3NhdGlvbiIsCiAgICAiY29udHJhLWRvc2UtcmVkdWNlLW90aGVyIgogIF07CgogIC8vIDEpIEhpZ2hsaWdodCBvbnNldCwgcGVhaywgZHVyYXRpb24gKHRpbWUtZWZmZWN0KQogIGF3YWl0IGFubm90YXRlSFRNTHNlY3Rpb24odGltZUVmZmVjdENhdGVnb3JpZXNUb1NlYXJjaCwgImhpZ2hsaWdodC10aW1lZWZmZWN0Iik7CgogIC8vIDIpIEhpZ2hsaWdodCBkb3NlIGFkanVzdG1lbnQgZmFjdG9ycwogIGF3YWl0IGFubm90YXRlSFRNTHNlY3Rpb24oZG9zZUFkanVzdG1lbnRDYXRlZ29yaWVzVG9TZWFyY2gsICJoaWdobGlnaHQtZG9zZS1hZGp1c3RtZW50Iik7CgogIHJldHVybiB7CiAgICBlbmhhbmNlLAogICAgZ2V0U3BlY2lmaWNhdGlvbiwKICB9Owp9OwoKcmV0dXJuIHsKICBlbmhhbmNlLAogIGdldFNwZWNpZmljYXRpb24sCn07Cg=="
-    }
-  ]
+  }
 }
