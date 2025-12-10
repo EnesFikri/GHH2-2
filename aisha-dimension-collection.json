@@ -1,0 +1,200 @@
+{
+  "resourceType": "Bundle",
+  "id": "aisha-dimension-collection",
+  "meta": {
+    "profile": [
+      "http://hl7.eu/fhir/ig/gravitate-health/StructureDefinition/persona-collection"
+    ]
+  },
+  "identifier": {
+    "system": "http://hl7.eu/fhir/ig/gravitate-health/persona-dimension-collection",
+    "value": "aisha-collection-1"
+  },
+  "type": "collection",
+  "entry": [
+    {
+      "fullUrl": "http://hl7.eu/fhir/ig/gravitate-health/Observation/aisha-dimension-1",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "aisha-dimension-1",
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.eu/fhir/ig/gravitate-health/CodeSystem/pd-type-cs",
+              "code": "BIO",
+              "display": "Biometrics"
+            }
+          ],
+          "text": "User biometrics"
+        },
+        "subject": {
+          "display": "Aisha-patient"
+        },
+        "effectiveDateTime": "2024-01-01T00:00:00Z",
+        "valueString": "Age group 18–64 years; body weight 50–80 kg; kidney problem; not pregnant; history of severe hypoglycaemia once; normal vision; current blood glucose not entered; moderately active; injection site: abdomen."
+      }
+    },
+    {
+      "fullUrl": "http://hl7.eu/fhir/ig/gravitate-health/Observation/aisha-dimension-2",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "aisha-dimension-2",
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.eu/fhir/ig/gravitate-health/CodeSystem/pd-type-cs",
+              "code": "DIP",
+              "display": "Diabetes & Insulin Profile"
+            }
+          ],
+          "text": "Diabetes and insulin profile"
+        },
+        "subject": {
+          "display": "Aisha-patient"
+        },
+        "effectiveDateTime": "2024-01-01T00:00:00Z",
+        "valueString": "Type 2 diabetes; using insulin for 3 years; basal long-acting insulin; prandial rapid-acting insulin; injection device: pen."
+      }
+    },
+    {
+      "fullUrl": "http://hl7.eu/fhir/ig/gravitate-health/Observation/aisha-dimension-3",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "aisha-dimension-3",
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.eu/fhir/ig/gravitate-health/CodeSystem/pd-type-cs",
+              "code": "COM",
+              "display": "Comorbidities"
+            }
+          ],
+          "text": "Comorbidities and risk layering"
+        },
+        "subject": {
+          "display": "Aisha-patient"
+        },
+        "effectiveDateTime": "2024-01-01T00:00:00Z",
+        "valueString": "Chronic kidney disease present; no CAD; no heart failure; no liver disease; not elderly (younger than 65); not pregnant; no history of frequent hypoglycaemia (only once)."
+      }
+    },
+    {
+      "fullUrl": "http://hl7.eu/fhir/ig/gravitate-health/Observation/aisha-dimension-4",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "aisha-dimension-4",
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.eu/fhir/ig/gravitate-health/CodeSystem/pd-type-cs",
+              "code": "MED",
+              "display": "Medication profile"
+            }
+          ],
+          "text": "Medications consumed"
+        },
+        "subject": {
+          "display": "Aisha-patient"
+        },
+        "effectiveDateTime": "2024-01-01T00:00:00Z",
+        "valueString": "Basal insulin daily; rapid-acting insulin before meals; metformin; ACE inhibitor."
+      }
+    },
+    {
+      "fullUrl": "http://hl7.eu/fhir/ig/gravitate-health/Observation/aisha-dimension-5",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "aisha-dimension-5",
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.eu/fhir/ig/gravitate-health/CodeSystem/pd-type-cs",
+              "code": "BEH",
+              "display": "Behaviour profile"
+            }
+          ],
+          "text": "Behaviour profile"
+        },
+        "subject": {
+          "display": "Aisha-patient"
+        },
+        "effectiveDateTime": "2024-01-01T00:00:00Z",
+        "valueString": "Occasionally misses doses; injections often delayed; rarely checks blood glucose; no specific diet preference."
+      }
+    },
+    {
+      "fullUrl": "http://hl7.eu/fhir/ig/gravitate-health/Observation/aisha-dimension-6",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "aisha-dimension-6",
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.eu/fhir/ig/gravitate-health/CodeSystem/pd-type-cs",
+              "code": "HL",
+              "display": "Health Literacy"
+            }
+          ],
+          "text": "User literacy"
+        },
+        "subject": {
+          "display": "Aisha-patient"
+        },
+        "effectiveDateTime": "2024-01-01T00:00:00Z",
+        "valueString": "Prefers simple explanations in English."
+      }
+    },
+    {
+      "fullUrl": "http://hl7.eu/fhir/ig/gravitate-health/Observation/aisha-dimension-7",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "aisha-dimension-7",
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.eu/fhir/ig/gravitate-health/CodeSystem/pd-type-cs",
+              "code": "LIV",
+              "display": "Living conditions & access"
+            }
+          ],
+          "text": "Living condition and emergency access"
+        },
+        "subject": {
+          "display": "Aisha-patient"
+        },
+        "effectiveDateTime": "2024-01-01T00:00:00Z",
+        "valueString": "Lives with family in an urban area; access to clinic in less than 30 minutes; emergency contact available."
+      }
+    },
+    {
+      "fullUrl": "http://hl7.eu/fhir/ig/gravitate-health/Observation/aisha-dimension-8",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "aisha-dimension-8",
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.eu/fhir/ig/gravitate-health/CodeSystem/pd-type-cs",
+              "code": "CUL",
+              "display": "Cultural routines & work"
+            }
+          ],
+          "text": "Cultural routines"
+        },
+        "subject": {
+          "display": "Aisha-patient"
+        },
+        "effectiveDateTime": "2024-01-01T00:00:00Z",
+        "valueString": "Religious fasting this week; works in a desk job."
+      }
+    }
+  ]
+}
