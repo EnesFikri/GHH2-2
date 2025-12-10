@@ -1,0 +1,180 @@
+{
+  "resourceType": "Bundle",
+  "id": "levemir-ePI-annotated-time",
+  "type": "document",
+  "meta": {
+    "profile": [
+      "http://hl7.eu/fhir/ig/gravitate-health/StructureDefinition/Bundle-epi"
+    ]
+  },
+  "identifier": {
+    "system": "https://www.gravitatehealth.eu/sid/doc",
+    "value": "levemir-epi-time-annotated"
+  },
+  "language": "en",
+  "entry": [
+    {
+      "fullUrl": "Composition/levemir-epi-time",
+      "resource": {
+        "resourceType": "Composition",
+        "id": "levemir-epi-time",
+        "status": "final",
+        "type": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "60591-5",
+              "display": "Patient summary Document"
+            }
+          ],
+          "text": "Package leaflet – Levemir"
+        },
+        "title": "Levemir package leaflet (time-effect annotated)",
+        "date": "2024-12-11",
+        "language": "en",
+        "subject": {
+          "reference": "Medication/levemir",
+          "display": "Levemir 100 units/mL solution for injection"
+        },
+        "author": [
+          {
+            "display": "Novo Nordisk A/S (EPAR leaflet); time-effect annotation for Gravitate-Health demo"
+          }
+        ],
+        "section": [
+          {
+            "title": "Time-effect profile of Levemir",
+            "code": {
+              "text": "Time-effect of insulin detemir"
+            },
+            "text": {
+              "status": "additional",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Levemir (insulin detemir) is a long-acting basal insulin with a relatively flat time-action profile.</p><ul><li><b>Onset of action:</b> approximately 3–4 hours after subcutaneous injection.</li><li><b>Peak effect:</b> no pronounced peak; glucose-lowering effect is relatively flat over the dosing interval.</li><li><b>Duration of action:</b> up to about 24 hours depending on dose, injection site and individual response.</li></ul></div>"
+            },
+            "extension": [
+              {
+                "url": "http://gravitatehealth.eu/fhir/StructureDefinition/time-effect-annotation",
+                "extension": [
+                  {
+                    "url": "onset",
+                    "valueRange": {
+                      "low": {
+                        "value": 3,
+                        "unit": "hours",
+                        "system": "http://unitsofmeasure.org",
+                        "code": "h"
+                      },
+                      "high": {
+                        "value": 4,
+                        "unit": "hours",
+                        "system": "http://unitsofmeasure.org",
+                        "code": "h"
+                      }
+                    }
+                  },
+                  {
+                    "url": "peak",
+                    "valueString": "No pronounced peak; relatively flat profile over the dosing interval."
+                  },
+                  {
+                    "url": "duration",
+                    "valueRange": {
+                      "low": {
+                        "value": 16,
+                        "unit": "hours",
+                        "system": "http://unitsofmeasure.org",
+                        "code": "h"
+                      },
+                      "high": {
+                        "value": 24,
+                        "unit": "hours",
+                        "system": "http://unitsofmeasure.org",
+                        "code": "h"
+                      }
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "title": "Factors that increase Levemir effect (risk of hypoglycaemia)",
+            "code": {
+              "text": "Dose-increasing / effect-increasing factors"
+            },
+            "text": {
+              "status": "additional",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Situations from the leaflet that can <b>increase</b> the blood-glucose-lowering effect of Levemir and therefore may require <b>dose reduction</b> or extra carbohydrate intake:</p><ul><li>Injecting too much insulin compared with your needs.</li><li>Eating too little or skipping a meal.</li><li>Unplanned or more intense physical activity than usual.</li><li>Drinking alcohol.</li><li>Improvements in insulin sensitivity (for example after recovery from illness or weight loss).</li></ul></div>"
+            },
+            "extension": [
+              {
+                "url": "http://gravitatehealth.eu/fhir/StructureDefinition/time-effect-annotation",
+                "extension": [
+                  {
+                    "url": "effectDirection",
+                    "valueCode": "increased"
+                  },
+                  {
+                    "url": "clinicalConsequence",
+                    "valueString": "Higher risk of hypoglycaemia; consider reducing dose and/or increasing carbohydrate intake around the time of maximum effect."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "title": "Factors that reduce Levemir effect (risk of hyperglycaemia)",
+            "code": {
+              "text": "Dose-decreasing / effect-reducing factors"
+            },
+            "text": {
+              "status": "additional",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Situations from the leaflet that can <b>reduce</b> the blood-glucose-lowering effect of Levemir and therefore may require a <b>dose increase</b> or correction insulin:</p><ul><li>Forgetting insulin doses or injecting less than prescribed.</li><li>Eating more than usual or frequent snacking.</li><li>Less physical activity than usual.</li><li>Concomitant illness, infection, fever or major stress that increases insulin requirement.</li><li>Changes in concomitant medicines that raise blood glucose.</li></ul></div>"
+            },
+            "extension": [
+              {
+                "url": "http://gravitatehealth.eu/fhir/StructureDefinition/time-effect-annotation",
+                "extension": [
+                  {
+                    "url": "effectDirection",
+                    "valueCode": "reduced"
+                  },
+                  {
+                    "url": "clinicalConsequence",
+                    "valueString": "Higher risk of hyperglycaemia and ketoacidosis; consider increasing basal dose or adding correction insulin as clinically appropriate."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Medication/levemir",
+      "resource": {
+        "resourceType": "Medication",
+        "id": "levemir",
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.whocc.no/atc",
+              "code": "A10AE05",
+              "display": "insulin detemir"
+            }
+          ],
+          "text": "Levemir 100 units/mL solution for injection"
+        },
+        "form": {
+          "coding": [
+            {
+              "system": "http://standardterms.edqm.eu",
+              "code": "111115",
+              "display": "Solution for injection"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
