@@ -9,11 +9,11 @@ It takes structured electronic Product Information (ePI) for insulins (e.g., **H
 * Clear **“what I might feel”** symptoms summary
 * Simple **emergency instructions** on what to do if things go wrong
 
-DiaLens follows the same structural and coding style as the original **diabetes-lens** from Gravitate Health, but focuses specifically on **time effect + hypo risk**.
+DiaLens focuses specifically on **time effect + hypo risk**.
 
 ---
 
-## Aisha: The Persona Behind DiaLens
+## Aisha: The Persona Vector Behind DiaLens
 
 DiaLens is built with a concrete user in mind: **Aisha**.
 
@@ -80,7 +80,7 @@ Given an insulin ePI (as FHIR resources with annotated **onset / peak / duration
 
 5. **Outputs HTML with highlighted sections**
 
-   * Adds CSS classes to highlight relevant text in the ePI (similar to `diabetes-lens`)
+   * Adds CSS classes to highlight relevant text in the ePI
    * Can be used inside a **smartphone UI** to show:
 
      * Mini chart/graphic of onset–peak–duration
@@ -90,7 +90,7 @@ Given an insulin ePI (as FHIR resources with annotated **onset / peak / duration
 
 ## How It Works (High Level)
 
-DiaLens JavaScript follows the same style as `diabetes-lens.js`:
+DiaLens JavaScript follows
 
 * Exports two main functions:
 
