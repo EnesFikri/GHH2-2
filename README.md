@@ -1,4 +1,5 @@
-# DiaLens – Hypoglycemia Risk Lens for Insulin ePIs
+# DiaLens – Hypoglycemia Risk Lens in Time View
+A Case using Insulin ePIs - Time Annotated
 
 DiaLens is a FHIR-based **“lens”** designed to highlight **hypoglycemia risk** for people using insulin.
 It takes structured electronic Product Information (ePI) for insulins (e.g., **Humalog**, **Levemir**) and turns it into a **time-based, patient-aware view** of:
