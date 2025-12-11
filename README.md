@@ -88,7 +88,7 @@ Given an insulin ePI (as FHIR resources with annotated **onset / peak / duration
 
 ---
 
-## How It Works (High Level)
+## How It Works
 
 DiaLens JavaScript follows
 
