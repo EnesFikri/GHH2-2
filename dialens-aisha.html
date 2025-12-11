@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dialens – Hypo Risk</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      background: #111827;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 16px;
+    }
+
+    .phone {
+      background: #020617;
+      color: #e5e7eb;
+      max-width: 420px;
+      width: 100%;
+      border-radius: 24px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+      padding: 16px 16px 24px;
+      box-sizing: border-box;
+      border: 1px solid #1f2937;
+    }
+
+    .status-bar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 10px;
+      color: #9ca3af;
+      margin-bottom: 4px;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .app-title {
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    .pill {
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      border: 1px solid #4b5563;
+      color: #d1d5db;
+    }
+
+    .patient {
+      font-size: 12px;
+      color: #9ca3af;
+      margin-bottom: 12px;
+    }
+
+    .card {
+      background: #020617;
+      border-radius: 16px;
+      border: 1px solid #1f2937;
+      padding: 12px;
+      margin-bottom: 12px;
+    }
+
+    .card-title {
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .card-sub {
+      font-size: 11px;
+      color: #9ca3af;
+      margin-bottom: 4px;
+    }
+
+    .highlight {
+      font-weight: 600;
+      color: #e5e7eb;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-top: 6px;
+    }
+
+    .chip {
+      font-size: 10px;
+      padding: 3px 6px;
+      border-radius: 999px;
+      background: #111827;
+      border: 1px solid #374151;
+      color: #d1d5db;
+    }
+
+    .insulin-name {
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .insulin-sub {
+      font-size: 11px;
+      color: #9ca3af;
+      margin-bottom: 8px;
+    }
+
+    .timeline-labels {
+      display: flex;
+      justify-content: space-between;
+      font-size: 10px;
+      color: #9ca3af;
+      margin-top: 4px;
+    }
+
+    .bar-wrapper {
+      width: 100%;
+      background: #020617;
+      border-radius: 999px;
+      border: 1px solid #1f2937;
+      overflow: hidden;
+      display: flex;
+      height: 14px;
+      margin-top: 4px;
+    }
+
+    .segment-onset {
+      background: rgba(56, 189, 248, 0.7);
+    }
+    .segment-peak {
+      background: rgba(248, 250, 252, 0.92);
+    }
+    .segment-tail {
+      background: rgba(148, 163, 184, 0.7);
+    }
+
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 6px;
+      font-size: 10px;
+      color: #9ca3af;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .legend-swatch {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+    }
+
+    .swatch-onset { background: rgba(56, 189, 248, 0.9); }
+    .swatch-peak  { background: rgba(248, 250, 252, 0.95); }
+    .swatch-tail  { background: rgba(148, 163, 184, 0.85); }
+
+    .list {
+      margin: 6px 0 0;
+      padding-left: 14px;
+      font-size: 11px;
+      color: #d1d5db;
+    }
+
+    .list li {
+      margin-bottom: 2px;
+    }
+
+    .badge-up {
+      color: #f97316;
+    }
+
+    .badge-down {
+      color: #22c55e;
+    }
+
+    .emergency-btn {
+      margin-top: 8px;
+      width: 100%;
+      border-radius: 999px;
+      border: none;
+      padding: 8px 0;
+      font-size: 13px;
+      font-weight: 600;
+      background: #dc2626;
+      color: #f9fafb;
+      box-shadow: 0 6px 16px rgba(220,38,38,0.45);
+    }
+  </style>
+</head>
+<body>
+  <div class="phone">
+    <div class="status-bar">Dialens • Hypoglycemia Risk</div>
+
+    <div class="header">
+      <div class="app-title">Dialens – Hypo Risk</div>
+      <div class="pill">Today</div>
+    </div>
+
+    <div class="patient">
+      Patient: <span class="highlight">Aisha</span> • Humalog + Levemir
+    </div>
+
+    <div class="card">
+      <div class="card-title">Overall hypo–sensitive window</div>
+      <div class="card-sub">
+        <span class="highlight">0.3 h → 24 h</span> after injections
+      </div>
+      <div class="card-sub">
+        Highest combined risk around <span class="highlight">1–3 h</span> (Humalog peak)
+        and <span class="highlight">3–9 h</span> (Levemir steady effect).
+      </div>
+      <div class="chips">
+        <div class="chip">Rapid drop: first 3 h</div>
+        <div class="chip">Prolonged risk: up to 24 h</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="insulin-name">Humalog (rapid-acting)</div>
+      <div class="insulin-sub">
+        Onset: <span class="highlight">0.3–0.5 h</span> • Peak: <span class="highlight">1–3 h</span> • Duration: <span class="highlight">≈5 h</span>
+      </div>
+
+      <div class="bar-wrapper">
+        <div class="segment-onset" style="width: 15%;"></div>
+        <div class="segment-peak"  style="width: 40%;"></div>
+        <div class="segment-tail"  style="width: 45%;"></div>
+      </div>
+      <div class="timeline-labels">
+        <span>0 h</span>
+        <span>2.5 h (peak)</span>
+        <span>5 h</span>
+      </div>
+
+      <div class="legend">
+        <div class="legend-item">
+          <span class="legend-swatch swatch-onset"></span><span>Onset</span>
+        </div>
+        <div class="legend-item">
+          <span class="legend-swatch swatch-peak"></span><span>Peak effect</span>
+        </div>
+        <div class="legend-item">
+          <span class="legend-swatch swatch-tail"></span><span>Tail</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="insulin-name">Levemir (long-acting)</div>
+      <div class="insulin-sub">
+        Onset: <span class="highlight">1–2 h</span> • Broad effect: <span class="highlight">3–9 h</span> • Duration: <span class="highlight">≈24 h</span>
+      </div>
+
+      <div class="bar-wrapper">
+        <div class="segment-onset" style="width: 10%;"></div>
+        <div class="segment-peak"  style="width: 50%;"></div>
+        <div class="segment-tail"  style="width: 40%;"></div>
+      </div>
+      <div class="timeline-labels">
+        <span>0 h</span>
+        <span>12 h (steady)</span>
+        <span>24 h</span>
+      </div>
+
+      <div class="legend">
+        <div class="legend-item">
+          <span class="legend-swatch swatch-onset"></span><span>Onset</span>
+        </div>
+        <div class="legend-item">
+          <span class="legend-swatch swatch-peak"></span><span>Steady effect</span>
+        </div>
+        <div class="legend-item">
+          <span class="legend-swatch swatch-tail"></span><span>Late tail</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Risk modifiers</div>
+      <div class="card-sub badge-up">↑ Increases hypo risk</div>
+      <ul class="list">
+        <li>Extra / unplanned exercise</li>
+        <li>Skipping or delaying meals</li>
+        <li>Alcohol use</li>
+        <li>Higher insulin dose than usual</li>
+      </ul>
+      <div class="card-sub badge-down" style="margin-top:6px;">↓ Reduces insulin effect</div>
+      <ul class="list">
+        <li>Missed or very late dose</li>
+        <li>Injection into scarred / hard tissue</li>
+        <li>Some medicines that raise glucose</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-title">How hypo may feel</div>
+      <ul class="list">
+        <li>Sweating, shaking, fast heartbeat</li>
+        <li>Sudden hunger, headache</li>
+        <li>Blurred vision, hard to focus</li>
+        <li>Irritability or confusion</li>
+      </ul>
+
+      <div class="card-title" style="margin-top:8px;">Emergency steps</div>
+      <ul class="list">
+        <li>If conscious: take fast sugar (juice, glucose tablets), then eat a snack/meal.</li>
+        <li>If very drowsy, confused, or unconscious: call emergency services and use glucagon if available and prescribed.</li>
+      </ul>
+
+      <button class="emergency-btn">
+        I feel low – what should I do?
+      </button>
+    </div>
+
+  </div>
+</body>
+</html>
