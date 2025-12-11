@@ -173,7 +173,7 @@ You can plug this into the same **focusing service** that already supports the `
 
 ## Getting Started
 
-> This is a conceptual guide – adjust to your real stack.
+> This is a conceptual guide
 
 1. Clone the repo
 2. Install dependencies (if using Node/JSDOM):
